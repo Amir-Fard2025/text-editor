@@ -26,8 +26,22 @@ module.exports = () => {
       }),
       new MiniCssExtractPlugin(),
       new InjectManifest({
-        swSrc: "./src/sw.js",
+        swSrc: "./src-sw.js",
         swDest: "service-worker.js",
+      }),
+      new WebpackPwaManifest({
+        name: "Online Text Editor",
+        short_name: "JATE",
+        filename: "manifest.json",
+        description: "My fabulous text editor application!",
+        background_color: "#ffffff",
+        crossorigin: "use-credentials", //can be null, use-credentials or anonymous
+        icons: [
+          {
+            src: path.resolve("src/images/logo.png"),
+            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+          },
+        ],
       }),
     ],
 
