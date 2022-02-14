@@ -30,6 +30,7 @@ module.exports = () => {
         swDest: "service-worker.js",
       }),
       new WebpackPwaManifest({
+        fingerprints: false,
         name: "Online Text Editor",
         short_name: "JATE",
         filename: "manifest.json",
@@ -40,7 +41,8 @@ module.exports = () => {
         icons: [
           {
             src: path.resolve("src/images/logo.png"),
-            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+            sizes: [96, 256, 512], // multiple sizes
+            destination: path.join("assets", "icons"),
           },
         ],
       }),
