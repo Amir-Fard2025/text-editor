@@ -29,6 +29,7 @@ module.exports = () => {
         swSrc: "./src-sw.js",
         swDest: "service-worker.js",
       }),
+
       new WebpackPwaManifest({
         fingerprints: false,
         name: "Online Text Editor",
@@ -59,6 +60,17 @@ module.exports = () => {
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: "asset/resource",
+        },
+        {
+          test: /\.(ico)$/i,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+              },
+            },
+          ],
         },
         {
           test: /\.m?js$/,
