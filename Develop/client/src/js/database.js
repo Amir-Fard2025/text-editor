@@ -8,11 +8,11 @@ const contentKey = 1;
 const initdb = async () =>
   openDB("jate", 1, {
     upgrade(db) {
-      if (db.objectStoreNames.contains("jate")) {
+      if (db.objectStoreNames.contains(storeName)) {
         console.log("jate database already exists");
         return;
       }
-      db.createObjectStore("jate", { keyPath: "id", autoIncrement: true });
+      db.createObjectStore(storeName, { keyPath: "id", autoIncrement: true });
       console.log("jate database created");
     },
   });
