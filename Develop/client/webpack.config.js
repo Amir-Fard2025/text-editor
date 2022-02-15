@@ -38,6 +38,8 @@ module.exports = () => {
         background_color: "#ffffff",
         crossorigin: "use-credentials", //can be null, use-credentials or anonymous
         publicPath: "/",
+        start_url: "/",
+
         icons: [
           {
             src: path.resolve("src/images/logo.png"),
@@ -58,16 +60,20 @@ module.exports = () => {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
           type: "asset/resource",
         },
-        // {
-        //   test: /\.m?js$/,
-        //   exclude: /(node_modules|bower_components)/,
-        //   use: {
-        //     loader: "babel-loader",
-        //     options: {
-        //       presets: ["@babel/preset-env"],
-        //     },
-        //   },
-        // },
+        {
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+              plugins: [
+                "@babel/plugin-proposal-object-rest-spread",
+                "@babel/transform-runtime",
+              ],
+            },
+          },
+        },
       ],
     },
   };
