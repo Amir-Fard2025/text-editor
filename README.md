@@ -1,6 +1,3 @@
-Build a text editor as a single-page application PWA that runs in the browser.
-(https://secure-scrubland-80892.herokuapp.com/)
-
 <div style="text-align:center"><img src="./Assets/image/landing-page.png"/></a></div>
 
 <h1>text-editor</h1>
